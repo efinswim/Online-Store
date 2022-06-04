@@ -1,19 +1,18 @@
 import {
   Box,
-  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Divider,
   Grid,
   Rating,
-  Stack,
   styled,
   Typography,
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../store/productSlice'
 
 const labels = {
   0.5: '120',
@@ -35,11 +34,20 @@ function getLabelText(value) {
 function Content() {
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+
+  
+  const products = useSelector((state) => state.products.products);
+  console.log('products', products)
 
   return (
     <Box p={4}>
       <Grid container>
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((_, index) => (
+        {products.map((product, index) => (
           <Grid
             item
             key={index + 1}
@@ -57,11 +65,10 @@ function Content() {
               />
               <CardContent>
                 <Typography gutterBottom variant='h5' component='div'>
-                  Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+                  {product.title}
                 </Typography>
                 <Typography variant='body2' color='text.secondary'>
-                  Your perfect pack for everyday use and walks in th…to 15
-                  inches) in the padded sleeve, your everyday
+                  {product.description}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -92,7 +99,9 @@ function Content() {
                     </Box>
                   )}
                 </Box>
-                <Typography variant='h5' component='p'>109.95$</Typography>
+                <Typography variant='h5' component='p'>
+                  109.95$
+                </Typography>
               </CardActions>
             </Card>
           </Grid>

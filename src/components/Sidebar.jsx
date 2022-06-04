@@ -18,7 +18,7 @@ const Sidebar = () => {
       <Box position='fixed'>
         <List>
           <ListItem disablePadding>
-            <ListItemButton divider={true} component='a' href='#home'>
+            <ListItemButton component='a' href='#home'>
               <ListItemIcon>
                 <DevicesOtherIcon />
               </ListItemIcon>
@@ -29,7 +29,7 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton divider={true} component='a' href='#home'>
+            <ListItemButton component='a' href='#home'>
               <ListItemIcon>
                 <DiamondIcon />
               </ListItemIcon>
@@ -40,7 +40,7 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton divider={true} component='a' href='#home'>
+            <ListItemButton component='a' href='#home'>
               <ListItemIcon>
                 <ManIcon />
               </ListItemIcon>
@@ -51,7 +51,7 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton divider={true} component='a' href='#home'>
+            <ListItemButton component='a' href='#home'>
               <ListItemIcon>
                 <WomanIcon />
               </ListItemIcon>
