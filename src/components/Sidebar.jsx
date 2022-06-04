@@ -14,39 +14,51 @@ import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 
 const Sidebar = () => {
   return (
-    <Box p={2} sx={{ display: { xs: 'block', sm: 'block' } }}>
+    <Box p={2} sx={{ display: { xs: 'block', md: 'block' } }}>
       <Box position='fixed'>
         <List>
           <ListItem disablePadding>
-            <ListItemButton component='a' href='#home'>
+            <ListItemButton divider={true} component='a' href='#home'>
               <ListItemIcon>
                 <DevicesOtherIcon />
               </ListItemIcon>
-              <ListItemText primary='Техніка' />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
+                primary='Техніка'
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component='a' href='#home'>
+            <ListItemButton divider={true} component='a' href='#home'>
               <ListItemIcon>
                 <DiamondIcon />
               </ListItemIcon>
-              <ListItemText primary='Прекраси' />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
+                primary='Прекраси'
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component='a' href='#home'>
+            <ListItemButton divider={true} component='a' href='#home'>
               <ListItemIcon>
                 <ManIcon />
               </ListItemIcon>
-              <ListItemText primary='Чоловічий одяг' />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
+                primary='Чоловічий одяг'
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component='a' href='#home'>
+            <ListItemButton divider={true} component='a' href='#home'>
               <ListItemIcon>
                 <WomanIcon />
               </ListItemIcon>
-              <ListItemText primary='Жіночий одяг' />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
+                primary='Жіночий одяг'
+              />
             </ListItemButton>
           </ListItem>
         </List>
