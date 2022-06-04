@@ -53,7 +53,7 @@ function Navbar() {
                 color: 'inherit',
                 textDecoration: 'none',
               }}>
-              ONLINE STORE JUNK
+              ОНЛАЙН СКЛЕП ВСЯКОГО
             </Typography>
           </LogoBlock>
           <Search sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}>
@@ -63,7 +63,7 @@ function Navbar() {
                 console.log(e.target.value);
               }}
               variant='standard'
-              placeholder='Search...'
+              placeholder='Пошук...'
             />
             <IconButton edge='end' type='submit'>
               <SearchIcon color='primary' />
