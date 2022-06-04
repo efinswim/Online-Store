@@ -1,14 +1,20 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Grid, Stack } from '@mui/material';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Content from './components/Content'
 
 function App() {
   return (
     <Box>
       <Navbar />
-      <Stack direction='row' justifyContent='space-between' spacing={2}>
-        <Sidebar />
-      </Stack>
+      <Grid container spacing={2}>
+        <Grid item xs={2}>
+          <Sidebar />
+        </Grid>
+        <Grid item xs={10}>
+          <Content />
+        </Grid>
+      </Grid>
     </Box>
   );
 }
