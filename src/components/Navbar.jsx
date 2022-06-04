@@ -16,6 +16,7 @@ import React from 'react';
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
+  justifyContent: 'space-between',
 });
 
 const Search = styled('div')(({ theme }) => ({
@@ -23,49 +24,56 @@ const Search = styled('div')(({ theme }) => ({
   padding: '0 15px',
   margin: '10px',
   borderRadius: theme.shape.borderRadius,
-  width: '300px',
+  width: '600px',
+}));
+
+const LogoBlock = styled('div')(({ theme }) => ({
+  display: 'flex',
 }));
 
 function Navbar() {
   return (
     <AppBar position='sticky'>
-      <Container maxWidth='xl' sx={{ display: 'flex' }}>
+      <Container maxWidth='xl'>
         <StyledToolbar disableGutters>
-          <BakeryDining
-            sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}
-            fontSize='large'
-          />
-          <Typography
-            variant='h6'
-            component='a'
-            href='/'
-            sx={{
-              mr: 2,
-              display: { xs: 'none', sm: 'none', md: 'flex' },
-              fontWeight: 700,
-              color: 'inherit',
-              textDecoration: 'none',
-            }}>
-            ONLINE STORE JUNK
-          </Typography>
-            <Search sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }}>
-              <TextField
-                fullWidth
-                onInput={(e) => {
-                  console.log(e.target.value);
-                }}
-                variant='standard'
-                placeholder='Search...'
-              />
-              <IconButton edge='end' type='submit'>
-                <SearchIcon color='primary' />
-              </IconButton>
-            </Search>
+          <LogoBlock>
+            {' '}
+            <BakeryDining
+              sx={{ mr: 1 }}
+              fontSize='large'
+            />
+            <Typography
+              variant='h6'
+              component='a'
+              href='/'
+              sx={{
+                mr: 2,
+                display: { xs: 'none', sm: 'none', md: 'flex' },
+                fontWeight: 700,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}>
+              ONLINE STORE JUNK
+            </Typography>
+          </LogoBlock>
+          <Search sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}>
+            <TextField
+              fullWidth
+              onInput={(e) => {
+                console.log(e.target.value);
+              }}
+              variant='standard'
+              placeholder='Search...'
+            />
             <IconButton edge='end' type='submit'>
-              <Badge badgeContent={4} color='secondary'>
-                <ShoppingCartIcon sx={{ color: 'white' }} />
-              </Badge>
+              <SearchIcon color='primary' />
             </IconButton>
+          </Search>
+          <IconButton edge='end' type='submit'>
+            <Badge badgeContent={4} color='secondary'>
+              <ShoppingCartIcon sx={{ color: 'white' }} />
+            </Badge>
+          </IconButton>
         </StyledToolbar>
       </Container>
     </AppBar>
