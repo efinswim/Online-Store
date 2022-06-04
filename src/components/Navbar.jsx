@@ -5,9 +5,9 @@ import {
   Toolbar,
   Typography,
   styled,
-  TextField,
   IconButton,
   Badge,
+  InputBase,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -37,11 +37,7 @@ function Navbar() {
       <Container maxWidth='xl'>
         <StyledToolbar disableGutters>
           <LogoBlock>
-            {' '}
-            <BakeryDining
-              sx={{ mr: 1 }}
-              fontSize='large'
-            />
+            <BakeryDining sx={{ mr: 1 }} fontSize='large' />
             <Typography
               variant='h6'
               component='a'
@@ -57,14 +53,7 @@ function Navbar() {
             </Typography>
           </LogoBlock>
           <Search sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}>
-            <TextField
-              fullWidth
-              onInput={(e) => {
-                console.log(e.target.value);
-              }}
-              variant='standard'
-              placeholder='Пошук...'
-            />
+            <InputBase fullWidth placeholder='Пошук...' />
             <IconButton edge='end' type='submit'>
               <SearchIcon color='primary' />
             </IconButton>
