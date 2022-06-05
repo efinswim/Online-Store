@@ -12,18 +12,8 @@ import {
 import StarIcon from '@mui/icons-material/Star';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../store/productSlice';
 
-function Content() {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  const products = useSelector((state) => state.products.products);
-
+function Content({ products }) {
   return (
     <Box p={4}>
       <Grid container>
