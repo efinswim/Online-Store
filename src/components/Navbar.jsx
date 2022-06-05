@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 import React from 'react';
 
 const StyledToolbar = styled(Toolbar)({
@@ -31,9 +30,7 @@ const LogoBlock = styled('div')(({ theme }) => ({
   display: 'flex',
 }));
 
-function Navbar() {
-  const [searchValue, setSearchValue] = React.useState('')
-
+function Navbar({ setSearch }) {
   return (
     <AppBar position='sticky'>
       <Container maxWidth='xl'>
@@ -55,7 +52,11 @@ function Navbar() {
             </Typography>
           </LogoBlock>
           <Search sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}>
-            <InputBase onChange={(event) => setSearchValue(event.target.value)} fullWidth placeholder='Пошук...' />
+            <InputBase
+              onChange={(e) => setSearch(e.target.value)}
+              fullWidth
+              placeholder='Пошук...'
+            />
             <IconButton edge='end' type='submit'>
               <SearchIcon color='primary' />
             </IconButton>
