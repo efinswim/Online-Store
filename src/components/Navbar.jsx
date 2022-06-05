@@ -32,6 +32,8 @@ const LogoBlock = styled('div')(({ theme }) => ({
 }));
 
 function Navbar() {
+  const [searchValue, setSearchValue] = React.useState('')
+
   return (
     <AppBar position='sticky'>
       <Container maxWidth='xl'>
@@ -53,7 +55,7 @@ function Navbar() {
             </Typography>
           </LogoBlock>
           <Search sx={{ display: { xs: 'flex', sm: 'flex' }, mr: 1 }}>
-            <InputBase fullWidth placeholder='Пошук...' />
+            <InputBase onChange={(event) => setSearchValue(event.target.value)} fullWidth placeholder='Пошук...' />
             <IconButton edge='end' type='submit'>
               <SearchIcon color='primary' />
             </IconButton>

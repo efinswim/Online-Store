@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -9,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../store/productSlice';
@@ -21,7 +23,6 @@ function Content() {
   }, [dispatch]);
 
   const products = useSelector((state) => state.products.products);
-  console.log('products', products);
 
   return (
     <Box p={4}>
@@ -38,10 +39,10 @@ function Content() {
             <Card sx={{ marginBottom: '20px', maxWidth: 300 }}>
               <CardMedia component='img' height='140' image={product.image} />
               <CardContent>
-                <Typography gutterBottom variant='h5' component='div'>
+                <Typography gutterBottom variant='h5' component='div' noWrap>
                   {product.title}
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
+                <Typography variant='body2' color='text.secondary' noWrap>
                   {product.description}
                 </Typography>
               </CardContent>
@@ -68,6 +69,14 @@ function Content() {
                   {product.price}$
                 </Typography>
               </CardActions>
+              <Box>
+                <Button
+                  fullWidth
+                  variant='contained'
+                  startIcon={<AddShoppingCartIcon />}>
+                  Додати до кошика
+                </Button>
+              </Box>
             </Card>
           </Grid>
         ))}
