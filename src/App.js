@@ -17,7 +17,7 @@ function App() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  let products = useSelector((state) => state.products.products);
+  const products = useSelector((state) => state.products.products);
 
   const filterProductsBySearch = products.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
