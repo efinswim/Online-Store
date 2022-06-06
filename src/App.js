@@ -9,33 +9,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from './store/productSlice';
 
 function App() {
-  const [search, setSearch] = React.useState('')
+  const [search, setSearch] = React.useState('');
+  const [category, setCategory] = React.useState('');
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch, search]);
+  }, [dispatch]);
 
-  React.useEffect(() => {
-    
-  }, []);
+  let products = useSelector((state) => state.products.products);
 
-  const products = useSelector((state) => state.products.products);
-
-  const filterProducts = products.filter((product) => {
+  const filterProductsBySearch = products.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
-  
+
+  const filterProductsByCategory = products.filter((product) => {
+    return product.category.toLowerCase().includes(category.toLowerCase());
+  });
 
   return (
     <Box>
       <Navbar setSearch={setSearch} />
       <Grid container spacing={2}>
         <Grid item xs={2}>
-          <Sidebar />
+          <Sidebar setCategory={setCategory} />
         </Grid>
         <Grid item xs={10}>
-          <Content products={filterProducts} />
+          <Content products={filterProductsBySearch} />
         </Grid>
       </Grid>
     </Box>

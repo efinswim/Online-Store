@@ -35,14 +35,17 @@ const categories = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ setCategory }) => {
   return (
     <Box p={2} sx={{ display: { xs: 'block', md: 'block' } }}>
       <Box position='fixed'>
         <List>
           {categories.map((category) => (
             <ListItem disablePadding key={category.primaryEN}>
-              <ListItemButton component='a' href='#home'>
+              <ListItemButton
+                onClick={(e) => setCategory(category.primaryEN)}
+                component='a'
+                href='#home'>
                 <ListItemIcon>{category.icon}</ListItemIcon>
                 <ListItemText
                   sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
