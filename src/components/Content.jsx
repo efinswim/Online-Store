@@ -11,9 +11,14 @@ import {
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { addToCart } from '../store/cartSlice'
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 function Content({ products }) {
+  const dispatch = useDispatch()
+
   return (
     <Box p={4}>
       <Grid container>
@@ -63,6 +68,7 @@ function Content({ products }) {
                 <Button
                   fullWidth
                   variant='contained'
+                  onClick={() => dispatch(addToCart(product))}
                   startIcon={<AddShoppingCartIcon />}>
                   Додати до кошика
                 </Button>

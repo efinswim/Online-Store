@@ -12,6 +12,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -61,11 +62,13 @@ function Navbar({ setSearch }) {
               <SearchIcon color='primary' />
             </IconButton>
           </Search>
-          <IconButton edge='end' type='submit'>
-            <Badge badgeContent={4} color='secondary'>
-              <ShoppingCartIcon sx={{ color: 'white' }} />
-            </Badge>
-          </IconButton>
+          <Link to='/cart'>
+            <IconButton edge='end' type='submit'>
+              <Badge badgeContent={4} color='secondary'>
+                <ShoppingCartIcon sx={{ color: 'white' }} />
+              </Badge>
+            </IconButton>
+          </Link>
         </StyledToolbar>
       </Container>
     </AppBar>

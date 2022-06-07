@@ -23,7 +23,7 @@ const setError = (state, action) => {
   state.error = action.payload;
 };
 
-export const productSlice = createSlice({
+export const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
@@ -44,6 +44,6 @@ export const productSlice = createSlice({
   },
 });
 
-export const productReducer = productSlice.reducer
+export const productsReducer = productsSlice.reducer
 
 

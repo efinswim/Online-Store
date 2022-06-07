@@ -7,6 +7,9 @@ import {
   ListItemText,
 } from '@mui/material';
 
+import { changeCategory } from '../store/filterSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
 import DiamondIcon from '@mui/icons-material/Diamond';
 import WomanIcon from '@mui/icons-material/Woman';
 import ManIcon from '@mui/icons-material/Man';
@@ -35,7 +38,10 @@ const categories = [
   },
 ];
 
-const Sidebar = ({ setCategory }) => {
+const Sidebar = ({ changeCategory }) => {
+  const category = useSelector((state) => console.log(state.filter.category));
+  const dispatch = useDispatch();
+
   return (
     <Box p={2} sx={{ display: { xs: 'block', md: 'block' } }}>
       <Box position='fixed'>
@@ -43,9 +49,10 @@ const Sidebar = ({ setCategory }) => {
           {categories.map((category) => (
             <ListItem disablePadding key={category.primaryEN}>
               <ListItemButton
-                onClick={(e) => setCategory(category.primaryEN)}
+                onClick={(id) => console.log(id)}
                 component='a'
-                href='#home'>
+                //href={`${category.primaryEN}`}
+              >
                 <ListItemIcon>{category.icon}</ListItemIcon>
                 <ListItemText
                   sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
